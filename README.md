@@ -1,104 +1,45 @@
-# My First Project
+Based on the build error, the `lucide-react` package is missing from your dependencies. Here's the solution:
 
-A modern Next.js application built with TypeScript and Tailwind CSS, ready for deployment on Vercel.
-
-## Features
-
-- ⚡ **Next.js 14** - The latest version with App Router
-- 🎨 **Tailwind CSS** - Utility-first CSS framework
-- 📘 **TypeScript** - Type-safe development
-- 🚀 **Vercel Ready** - Optimized for Vercel deployment
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+ installed
-- npm, yarn, or pnpm package manager
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/mydevtank/my-first-project.git
-cd my-first-project
+```json
+{
+  "files": {
+    "package.json": `{
+  "name": "my-first-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.0.4",
+    "lucide-react": "^0.294.0"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4"
+  }
+}`
+  },
+  "summary": "Added missing lucide-react dependency to package.json. The build was failing because the DarkModeToggle and Settings components import icons from lucide-react, but the package was not installed. This fix will resolve the 'Module not found: Can't resolve lucide-react'' error.",
+  "commitMessage": "fix: add missing lucide-react dependency\n\nResolves build error where lucide-react icons could not be resolved in DarkModeToggle and Settings components."
+}
 ```
 
-2. Install dependencies:
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-```
+**What this fixes:**
 
-3. Run the development server:
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1. **Added `lucide-react` dependency** - The components `DarkModeToggle.tsx` and `Settings.tsx` are importing icons from `lucide-react` (like `Moon`, `Sun`, etc.), but the package wasn't listed in `package.json`
+2. **Version specified** - Using a stable version `^0.294.0` that's compatible with React 18 and Next.js 14
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## Project Structure
-
-```
-my-first-project/
-├── app/
-│   ├── layout.tsx      # Root layout component
-│   ├── page.tsx        # Home page
-│   └── globals.css     # Global styles
-├── public/             # Static assets
-├── .eslintrc.json      # ESLint configuration
-├── .gitignore          # Git ignore rules
-├── next.config.js      # Next.js configuration
-├── package.json        # Project dependencies
-├── postcss.config.js   # PostCSS configuration
-├── tailwind.config.ts  # Tailwind CSS configuration
-└── tsconfig.json       # TypeScript configuration
-```
-
-## Deployment to Vercel
-
-### Option 1: Deploy via Vercel Dashboard
-
-1. Push your code to GitHub
-2. Visit [vercel.com/new](https://vercel.com/new)
-3. Import your repository
-4. Vercel will automatically detect Next.js and configure the build settings
-5. Click "Deploy"
-
-### Option 2: Deploy via Vercel CLI
-
-1. Install Vercel CLI:
-```bash
-npm i -g vercel
-```
-
-2. Run deployment:
-```bash
-vercel
-```
-
-3. Follow the prompts to complete deployment
-
-## Build for Production
-
-```bash
-npm run build
-npm run start
-```
-
-## Learn More
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Vercel Documentation](https://vercel.com/docs)
-
-## License
-
-MIT
+After this change is committed and deployed, Vercel will install the `lucide-react` package during the build process, and the build should succeed.
