@@ -1,50 +1,42 @@
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="z-10 max-w-5xl w-full items-center justify-center font-mono text-sm">
-        <div className="text-center">
-          <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            Welcome to My First Project
-          </h1>
-          <p className="text-xl text-gray-700 mb-8">
-            A Next.js application ready to deploy on Vercel
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h2 className="text-2xl font-bold mb-2 text-blue-600">⚡ Fast</h2>
-              <p className="text-gray-600">
-                Built with Next.js 14 for optimal performance and speed
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h2 className="text-2xl font-bold mb-2 text-indigo-600">🎨 Styled</h2>
-              <p className="text-gray-600">
-                Pre-configured with Tailwind CSS for beautiful designs
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <h2 className="text-2xl font-bold mb-2 text-purple-600">🚀 Deploy</h2>
-              <p className="text-gray-600">
-                Ready to deploy to Vercel with zero configuration
-              </p>
+    <main className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-4">
+      <div className="w-full max-w-md">
+        <div className="bg-gray-800 rounded-2xl shadow-2xl p-6 border border-gray-700">
+          <div className="mb-6">
+            <h1 className="text-2xl font-bold text-white text-center mb-2">計算機</h1>
+            <div className="bg-gray-900 rounded-lg p-4 text-right">
+              <div className="text-gray-500 text-sm h-6 mb-1" id="previous-operand"></div>
+              <div className="text-white text-4xl font-light" id="current-operand">0</div>
             </div>
           </div>
-
-          <div className="mt-12">
-            <a
-              href="https://vercel.com/new"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
-            >
-              Deploy to Vercel
-            </a>
+          
+          <div className="grid grid-cols-4 gap-3">
+            <button className="calc-btn bg-gray-700 hover:bg-gray-600 col-span-2" data-action="clear">AC</button>
+            <button className="calc-btn bg-gray-700 hover:bg-gray-600" data-action="delete">DEL</button>
+            <button className="calc-btn bg-orange-600 hover:bg-orange-500" data-operator="÷">÷</button>
+            
+            <button className="calc-btn bg-gray-700 hover:bg-gray-600" data-number="7">7</button>
+            <button className="calc-btn bg-gray-700 hover:bg-gray-600" data-number="8">8</button>
+            <button className="calc-btn bg-gray-700 hover:bg-gray-600" data-number="9">9</button>
+            <button className="calc-btn bg-orange-600 hover:bg-orange-500" data-operator="×">×</button>
+            
+            <button className="calc-btn bg-gray-700 hover:bg-gray-600" data-number="4">4</button>
+            <button className="calc-btn bg-gray-700 hover:bg-gray-600" data-number="5">5</button>
+            <button className="calc-btn bg-gray-700 hover:bg-gray-600" data-number="6">6</button>
+            <button className="calc-btn bg-orange-600 hover:bg-orange-500" data-operator="-">-</button>
+            
+            <button className="calc-btn bg-gray-700 hover:bg-gray-600" data-number="1">1</button>
+            <button className="calc-btn bg-gray-700 hover:bg-gray-600" data-number="2">2</button>
+            <button className="calc-btn bg-gray-700 hover:bg-gray-600" data-number="3">3</button>
+            <button className="calc-btn bg-orange-600 hover:bg-orange-500" data-operator="+">+</button>
+            
+            <button className="calc-btn bg-gray-700 hover:bg-gray-600 col-span-2" data-number="0">0</button>
+            <button className="calc-btn bg-gray-700 hover:bg-gray-600" data-number=".">.</button>
+            <button className="calc-btn bg-orange-600 hover:bg-orange-500" data-action="equals">=</button>
           </div>
         </div>
       </div>
     </main>
-  )
+  );
 }
